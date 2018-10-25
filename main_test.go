@@ -7,7 +7,7 @@ import (
 )
 
 func Test_HelloWorld(t *testing.T) {
-	req, err := http.NewRequest("GET", "http://example.com/foo", nil)
+	req, err := http.NewRequest("GET", "http://example.com/boo", nil)
 	if err != nil {
 		t.Fatal(err)
 	}

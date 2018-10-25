@@ -15,10 +15,27 @@ spec:
         run: helloworld-go
     spec:
       containers:
-      - image: vitaliyzinchenko/helloworld-go:v1
-        imagePullPolicy: Never
+      - image: docker.io/vitaliyzinchenko/helloworld-go:v1
+        imagePullPolicy: Always
         name: helloworld-go
         ports:
         - containerPort: 8080
           protocol: TCP
       restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: 2018-10-24T23:58:24Z
+  labels:
+    run: helloworld-go
+  name: helloworld-go
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    run: helloworld-go
+  type: NodePort
+

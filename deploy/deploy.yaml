@@ -1,0 +1,24 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    run: helloworld-go
+  name: helloworld-go
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: helloworld-go
+  template:
+    metadata:
+      labels:
+        run: helloworld-go
+    spec:
+      containers:
+      - image: vitaliyzinchenko/helloworld-go:v1
+        imagePullPolicy: Never
+        name: helloworld-go
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+      restartPolicy: Always

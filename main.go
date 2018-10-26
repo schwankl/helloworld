@@ -7,9 +7,9 @@ import (
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	if r.URL.Path[1:] != "navarkos" {
+	if r.URL.Path[1:] != "navarkos" && r.URL.Path[1:] != "kire" {
 		fmt.Fprintf(w, "Hi there, I love %s!", r.URL.Path[1:])
-	} else if r.URL.Path[1:] == "Kire" {
+	} else if r.URL.Path[1:] == "kire" {
 		fmt.Fprintf(w, "Hi there, Kire what you had for breakfast!")
 	} else {
 		fmt.Fprintf(w, "Hi there, Navarkos is the best thing that ever happened to kubernetes community!")
